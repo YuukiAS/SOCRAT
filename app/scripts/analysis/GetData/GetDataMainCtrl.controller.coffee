@@ -310,6 +310,7 @@ module.exports = class GetDataMainCtrl extends BaseCtrl
     )
 
   getSocrDataset: ->
+    # set in GetDataSocrDataConfig.service.coffee
     url = @socrData.getUrlByName @socrdataset.id
     # default option
     url = 'https://www.googledrive.com/host//0BzJubeARG-hsMnFQLTB3eEx4aTQ' unless url

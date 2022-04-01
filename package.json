@@ -105,7 +105,7 @@
     "node": ">=0.10.13"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && node server.js",
     "start-server": "node server.js > out.socrat.log 2> err.socrat.log &",
     "deploy": "npm run build && npm run start-server",
     "watch": "webpack --watch",

@@ -5,12 +5,14 @@ webpack = require("webpack");
 
 path = require("path");
 
+// * all classes should be put in /app directory
 appRoot = path.resolve(`${__dirname}`, "app");
 
 config = {
   mode: "development",
   entry: path.resolve(`${appRoot}`, "app.coffee"),
   output: {
+    // * all data and figures should be put in /_build directory
     path: path.resolve(".", "_build"),
     filename: "socrat.js",
   },
