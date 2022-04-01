@@ -6,6 +6,7 @@
 *.log
 package-lock.json
 *.vscode*
+/archive
 
 # Public files (generated)#
 ===============
