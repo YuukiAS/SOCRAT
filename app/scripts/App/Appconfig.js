@@ -3,7 +3,7 @@
 
 let Module = require('scripts/BaseClasses/BaseModule.coffee');
 
-let AppRoute = require('scripts/App/AppRoute.coffee');
+let AppRoute = require('scripts/App/AppRoute.js');
 
 let AppRun = require('scripts/App/AppRun.coffee');
 
@@ -92,7 +92,7 @@ module.exports = AppConfig = (function() {
     }
 
     getConfigBlock() {
-      var appRoute, config;
+      let appRoute, config;
       // create new router
       appRoute = new AppRoute(this.moduleList.getAnalysisModules());
       // workaround for dependency injection

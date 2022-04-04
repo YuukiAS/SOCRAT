@@ -17,7 +17,7 @@ module.exports = dimReduction = new Module
       'app_analysis_dimReduction_tSne': require 'scripts/analysis/tools/DimReduction/DimReductionTSne.service.coffee'
 
     controllers:
-      'dimReductionMainCtrl': require 'scripts/analysis/tools/DimReduction/DimReductionMainCtrl.ctrl.coffee'
+      'dimReductionMainCtrl': require 'scripts/analysis/tools/DimReduction/DimReductionMainCtrl.ctrl.js'
       'dimReductionSidebarCtrl': require 'scripts/analysis/tools/DimReduction/DimReductionSidebarCtrl.ctrl.coffee'
 
     directives:

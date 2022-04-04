@@ -33,4 +33,4 @@ module.exports = getData = new Module
     sidebarTemplate: require 'partials/analysis/getData/sidebar.jade'
 
   # 3rd-party dependencies
-  deps: ['ngHandsontable']
+  deps: ['ngHandsontable'] # Enables creation of data grid applications in AngularJS.

@@ -2,7 +2,7 @@ div(ng-controller="modelerMainCtrl as mainArea")
   div.lead.bg-danger(ng-hide="mainArea.dataType == mainArea.DATA_TYPES.FLAT")
     | Modeler only supports tabular data
   div(ng-hide="mainArea.dataType != mainArea.DATA_TYPES.FLAT")
-  
+
     div(ng-show='mainArea.distribution == "Normal"')
 
       .row
@@ -54,7 +54,7 @@ div(ng-controller="modelerMainCtrl as mainArea")
                 name='NormalVariance'
                 )
               #NormalVariance
-    
+
     div(ng-show='mainArea.distribution == "LogNormal"')
 
       .row
@@ -459,7 +459,7 @@ div(ng-controller="modelerMainCtrl as mainArea")
                 name='NormalVariance'
                 )
               #NormalVariance
-    
+
     div(ng-show='mainArea.distribution == "Logarithmic"')
       .row
         .col-md-8
@@ -544,7 +544,7 @@ div(ng-controller="modelerMainCtrl as mainArea")
                 name='kernelBandwidth'
                 )
               #kernelBandwidth
-    
+
     div.form-group
       .row.col-md-2.col-md-offset-10.form-inline
         button.btn.btn-info(
@@ -555,8 +555,9 @@ div(ng-controller="modelerMainCtrl as mainArea")
                   tooltip-placement="left"
                 )
                   | Reset
-    
+
     div(ng-show ="mainArea.distrbution != ' ' ")
+      //- Equivalent to <modeler-viz-dir></modeler-viz-dir>
       modeler-viz-dir
 
       p Descriptive statistics:
