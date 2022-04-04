@@ -51,7 +51,7 @@ module.exports = charts = new Module
       'ChartsMainCtrl': require 'scripts/analysis/Charts/ChartsMainCtrl.controller.coffee'
 
     directives:
-      'd3charts': require 'scripts/analysis/Charts/ChartsDir.directive.coffee'
+      'd3charts': require 'scripts/analysis/Charts/ChartsDir.directive.js'
 
 # module state config
   state:

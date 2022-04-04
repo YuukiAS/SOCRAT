@@ -24,7 +24,7 @@ module.exports = cluster = new Module
       'classificationSidebarCtrl': require 'scripts/analysis/tools/Classification/ClassificationSidebarCtrl.ctrl.coffee'
 
     directives:
-      'classificationgraph': require 'scripts/analysis/tools/Classification/ClassificationDir.directive.coffee'
+      'classificationgraph': require 'scripts/analysis/tools/Classification/ClassificationDir.directive.js'
 
   # module state config
   state:

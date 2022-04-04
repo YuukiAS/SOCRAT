@@ -16,13 +16,13 @@ module.exports = getData = new Module
       'app_analysis_getData_inputCache': require 'scripts/analysis/GetData/GetDataInputCache.service.coffee'
       'app_analysis_getData_showState': require 'scripts/analysis/GetData/GetDataShowState.service.coffee'
       'app_analysis_getData_dataService': require 'scripts/analysis/GetData/GetDataDataService.service.coffee'
-      'app_analysis_getData_socrDataConfig': require 'scripts/analysis/GetData/GetDataSocrDataConfig.service.coffee'
+      'app_analysis_getData_socrDataConfig': require 'scripts/analysis/GetData/GetDataSocrDataConfig.service.js'
     controllers:
       'GetDataSidebarCtrl': require 'scripts/analysis/GetData/GetDataSidebarCtrl.controller.coffee'
       'GetDataMainCtrl': require 'scripts/analysis/GetData/GetDataMainCtrl.controller.coffee'
     directives:
-      'getdatadragndrop': require 'scripts/analysis/GetData/GetDataDragNDropDir.directive.coffee'
-      'colhistogram' : require 'scripts/analysis/GetData/GetDataHistogramDir.directive.coffee'
+      'getdatadragndrop': require 'scripts/analysis/GetData/GetDataDragNDropDir.directive.js'
+      'colhistogram' : require 'scripts/analysis/GetData/GetDataHistogramDir.directive.js'
 
   # module state config
   state:

@@ -21,7 +21,7 @@ module.exports = dimReduction = new Module
       'dimReductionSidebarCtrl': require 'scripts/analysis/tools/DimReduction/DimReductionSidebarCtrl.ctrl.coffee'
 
     directives:
-      'socratDimReductionViz': require 'scripts/analysis/tools/DimReduction/DimReductionVizDir.directive.coffee'
+      'socratDimReductionViz': require 'scripts/analysis/tools/DimReduction/DimReductionVizDir.directive.js'
 
   # module state config
   state:

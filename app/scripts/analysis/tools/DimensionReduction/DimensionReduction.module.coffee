@@ -19,7 +19,7 @@ module.exports = dimensionReduction = new Module
       'dimensionReductionMainCtrl': require 'scripts/analysis/tools/DimensionReduction/DimensionReductionMainCtrl.ctrl.coffee'
 
     directives:
-      'dimensionReductionViz': require 'scripts/analysis/tools/DimensionReduction/DimensionReductionDir.directive.coffee'
+      'dimensionReductionViz': require 'scripts/analysis/tools/DimensionReduction/DimensionReductionDir.directive.js'
 
 # module state config
   state:
@@ -28,4 +28,4 @@ module.exports = dimensionReduction = new Module
     url: '/tools/dimred/embedproj'
     mainTemplate: require 'partials/analysis/tools/DimensionReduction/main.jade'
     sidebarTemplate: require 'partials/analysis/tools/DimensionReduction/sidebar.jade'
-    
+

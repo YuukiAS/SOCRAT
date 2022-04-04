@@ -24,7 +24,7 @@ module.exports = Stats = new Module
       'statsSidebarCtrl': require 'scripts/analysis/tools/Stats/StatsSidebarCtrl.ctrl.coffee'
 
     directives:
-      'statsCalcViz': require 'scripts/analysis/tools/Stats/StatsVizDir.directive.coffee'
+      'statsCalcViz': require 'scripts/analysis/tools/Stats/StatsVizDir.directive.js'
 
   # module state config
   state:

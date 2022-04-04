@@ -19,7 +19,7 @@ module.exports = dataWrangler = new Module
       'DataWranglerSidebarCtrl': require 'scripts/analysis/DataWrangler/DataWranglerSidebarCtrl.controller.coffee'
       'DataWranglerMainCtrl': require 'scripts/analysis/DataWrangler/DataWranglerMainCtrl.controller.coffee'
     directives:
-      'wranglerdir': require 'scripts/analysis/DataWrangler/DataWranglerWranglerDir.directive.coffee'
+      'wranglerdir': require 'scripts/analysis/DataWrangler/DataWranglerWranglerDir.directive.js'
 
   # module state config
   state:

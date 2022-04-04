@@ -1,14 +1,12 @@
 // webpack will automatically search "webpack.config.js"
-var appRoot, config, path, webpack;
+let webpack = require("webpack");
 
-webpack = require("webpack");
-
-path = require("path");
+let path = require("path");
 
 // * all classes should be put in /app directory
-appRoot = path.resolve(`${__dirname}`, "app");
+let appRoot = path.resolve(`${__dirname}`, "app");
 
-config = {
+let config = {
   mode: "development",
   entry: path.resolve(`${appRoot}`, "app.coffee"),
   output: {

@@ -45,8 +45,8 @@ angular.module 'app_directives', []
 require 'scripts/App/AppCtrl.coffee'
 require 'scripts/App/AppSidebarCtrl.coffee'
 require 'scripts/App/AppMainCtrl.coffee'
-require 'scripts/App/AppMenubarDirective.coffee'
-require 'scripts/App/AppNotification.directive.coffee'
+require 'scripts/App/AppMenubarDirective.js'
+require 'scripts/App/AppNotification.directive.js'
 require 'scripts/App/filters.coffee'
 require 'scripts/App/services.coffee'
 
@@ -55,7 +55,7 @@ document.body.innerHTML = bodyTemplate()
 
 # load app configs
 ModuleList = require 'scripts/App/AppModuleList.coffee'
-AppConfig = require 'scripts/App/AppConfig.coffee'
+AppConfig = require 'scripts/App/AppConfig.js'
 # create an instance of Core
 core = require 'scripts/core/Core.coffee'
 

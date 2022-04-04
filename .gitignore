@@ -6,11 +6,12 @@
 *.log
 package-lock.json
 *.vscode*
-/archive
+archive
+
 
 # Public files (generated)#
 ===============
-_build/
+# _build/
 /dist
 /.tmp
 /_build/*.js
@@ -18,7 +19,7 @@ _build/
 /_build/*.ttf
 /_build/*.svg
 /_build/*.woff
-/_build/datasets
+/_build/*.js.map
 
 #OS generated files #
 =====================

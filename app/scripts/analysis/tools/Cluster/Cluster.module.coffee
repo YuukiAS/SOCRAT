@@ -23,7 +23,7 @@ module.exports = cluster = new Module
       'clusterSidebarCtrl': require 'scripts/analysis/tools/Cluster/ClusterSidebarCtrl.ctrl.coffee'
 
     directives:
-      'socratClusterViz': require 'scripts/analysis/tools/Cluster/ClusterVizDir.directive.coffee'
+      'socratClusterViz': require 'scripts/analysis/tools/Cluster/ClusterVizDir.directive.js'
 
   # module state config
   state:
