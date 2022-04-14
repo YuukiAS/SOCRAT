@@ -58,6 +58,8 @@ div(ng-controller="statsMainCtrl as mainArea")
     input(style='margin-bottom:10px;' type='button' value='Show Help' ng-click='mainArea.showHelpToggle();')
     div(ng-show='mainArea.showHelp == true;')
       p TODO
+
+  //- Only show for CIOP
   div(ng-show='mainArea.selectedAlgorithm == "CI for One Proportion"')
     h6 Confidence Interval For Sample Proportion &nbsp;
       span.glyphicon.glyphicon-search(
@@ -66,7 +68,7 @@ div(ng-controller="statsMainCtrl as mainArea")
         tooltip-placement="right")
     .row
       .col-md-8
-        #visCIOP
+        #visCIOP 
       .col-md-4
         .form-inline
           label N (Sample Size): &nbsp;
@@ -78,6 +80,7 @@ div(ng-controller="statsMainCtrl as mainArea")
             step="1"
             name='CIOPN'
           )
+          //- <div id="CIOPNUI"></div>
           #CIOPNUI
         .form-inline
           label T (Total Size): &nbsp;

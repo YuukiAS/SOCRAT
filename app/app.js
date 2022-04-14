@@ -72,12 +72,12 @@ require('vega-embed');
 
 // * For newly added modules ---------
 
-const introJS = require('intro.js/intro.js')
+// const introJS = require('intro.js/intro.js')
 
-require('intro.js/minified/introjs.min.css')
-require('intro.js/themes/introjs-modern') // set theme
+// require('intro.js/minified/introjs.min.css')
+// require('intro.js/themes/introjs-modern') // set theme
 
-require('angular-intro.js')
+// require('angular-intro.js')
 
 // create app-level modules
 angular.module('app_services', []);
