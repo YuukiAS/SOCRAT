@@ -1,11 +1,10 @@
 'use strict';
 
-
 let Module = require('scripts/BaseClasses/BaseModule.coffee');
 
 let AppRoute = require('scripts/App/AppRoute.js');
 
-let AppRun = require('scripts/App/AppRun.coffee');
+let AppRun = require('scripts/App/AppRun.js');
 
 /*
  * @name AppConfig
@@ -21,8 +20,8 @@ module.exports = AppConfig = (function() {
     }
 
     addModuleComponents(modules = this.moduleList.getAnalysisModules()) {
-      var Ctrl, Dir, Service, angModule, ctrlName, dirName, i, k, len, module, moduleComponents, moduleRunBlock, ref, ref1, ref2, results, serviceName, v;
-// create modules components
+      let Ctrl, Dir, Service, angModule, ctrlName, dirName, i, k, len, module, moduleComponents, moduleRunBlock, ref, ref1, ref2, results, serviceName, v;
+      // create modules components
       results = [];
       for (i = 0, len = modules.length; i < len; i++) {
         module = modules[i];
@@ -78,7 +77,7 @@ module.exports = AppConfig = (function() {
         } else {
           // if collection of modules, recursively create
           results.push(this.addModuleComponents(((function() {
-            var results1;
+            let results1;
             results1 = [];
             for (k in module) {
               v = module[k];
@@ -105,13 +104,14 @@ module.exports = AppConfig = (function() {
     }
 
     getRunBlock() {
-      var appRun, runBlock;
       // create new run block
-      appRun = new AppRun(this.moduleList.getAnalysisModules(), this.runModules);
+      let appRun = new AppRun(this.moduleList.getAnalysisModules(), this.runModules);  // pass modules and runModuleNames
       // pass the context and module init services
-      runBlock = ($rootScope, core, ...modules) => {
+      // def initialization function for angular.run
+      let runBlock = ($rootScope, core, ...modules) => {
         return appRun.getRun($rootScope, core, modules);
       };
+      // def we use fn.$inject
       // dependencies for run block
       runBlock.$inject = ['$rootScope', 'app_core_service'].concat(this.runServices);
       return runBlock;

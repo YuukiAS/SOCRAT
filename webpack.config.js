@@ -8,7 +8,7 @@ let appRoot = path.resolve(`${__dirname}`, "app");
 
 let config = {
   mode: "development",
-  entry: path.resolve(`${appRoot}`, "app.coffee"),
+  entry: path.resolve(`${appRoot}`, "app.js"),
   output: {
     // * all data and figures should be put in /_build directory
     path: path.resolve(".", "_build"),
@@ -74,9 +74,9 @@ let config = {
       },
       {
         test: /[\/\\]highlight\.js$/,
-        loader: "exports-loader",
+        loader: "exports-loader", 
         options: {
-          type: "commonjs",
+          type: "commonjs", // todo: modify it to be exports
           exports: "Highlight",
         },
       },

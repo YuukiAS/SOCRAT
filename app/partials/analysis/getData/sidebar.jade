@@ -1,7 +1,7 @@
 div(ng-controller="GetDataSidebarCtrl as sidebar")
-  legend Inputs
-  div.list-group
-    
+  legend
+  div#data-group.list-group
+
     a#getDataGrid.list-group-item(
       style="cursor:pointer",
       ng-repeat="option in sidebar.options",

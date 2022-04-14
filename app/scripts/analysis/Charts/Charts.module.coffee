@@ -47,11 +47,11 @@ module.exports = charts = new Module
       'app_analysis_charts_parallelCoordinates': require 'scripts/analysis/Charts/ChartsParallelCoordinates.service.coffee'
 
     controllers:
-      'ChartsSidebarCtrl': require 'scripts/analysis/Charts/ChartsSidebarCtrl.controller.coffee'
+      'ChartsSidebarCtrl': require 'scripts/analysis/Charts/ChartsSidebarCtrl.controller.js'
       'ChartsMainCtrl': require 'scripts/analysis/Charts/ChartsMainCtrl.controller.coffee'
 
     directives:
-      'd3charts': require 'scripts/analysis/Charts/ChartsDir.directive.js'
+      'd3charts': require 'scripts/analysis/Charts/ChartsDir.directive.js' # fixme
 
 # module state config
   state:
