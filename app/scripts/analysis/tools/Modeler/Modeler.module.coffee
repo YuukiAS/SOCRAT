@@ -36,7 +36,7 @@ module.exports = modeler = new Module
 
     controllers:
       'modelerMainCtrl': require 'scripts/analysis/tools/Modeler/ModelerMainCtrl.ctrl.js'
-      'modelerSidebarCtrl': require 'scripts/analysis/tools/Modeler/ModelerSidebarCtrl.ctrl.coffee'
+      'modelerSidebarCtrl': require 'scripts/analysis/tools/Modeler/ModelerSidebarCtrl.ctrl.js'
 
     directives:
       'modelerVizDir': require 'scripts/analysis/tools/Modeler/ModelerVizDir.directive.js'

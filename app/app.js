@@ -121,7 +121,8 @@ let core = require('scripts/core/Core.js');
 console.log("moduleList is ", moduleList.listAll())
 
 let modules =  moduleList.listAll();
-modules.push('angular-intro')
+// todo: Add introJS support
+// modules.push('angular-intro')
 
 angular.module('app', modules)  // def modules is a list of dependencies (modules)
        .config(appConfig.getConfigBlock())
