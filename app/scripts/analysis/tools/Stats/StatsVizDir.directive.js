@@ -1,10 +1,10 @@
 'use strict';
 
 let BaseDirective = require('scripts/BaseClasses/BaseDirective');
-let StatsVizDiv;
 
-module.exports = StatsVizDiv = (function() {
+let StatsVizDiv = (function() {
   class StatsVizDiv extends BaseDirective {
+
     initialize() {
       this.restrict = 'E';
       this.template = "<div id='#twoTestGraph' class='graph'></div>";
@@ -13,8 +13,10 @@ module.exports = StatsVizDiv = (function() {
 
   };
 
-  StatsVizDiv.inject('$parse');
+  StatsVizDiv.inject('$parse');  // convert angular expression into javascript function
 
   return StatsVizDiv;
 
 }).call(this);
+
+module.exports = StatsVizDiv;

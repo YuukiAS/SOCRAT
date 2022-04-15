@@ -1,0 +1,37 @@
+<div ng-controller="statsSidebarCtrl as sidebar" ng-intro-options="IntroOptions" ng-intro-autostart="ShouldAutoStart">
+  <legend>Statistical Analysis &nbsp;</legend>
+  <div class="form-group" id="stats-step1"><label>Calculator &nbsp;</label><select class="form-control"
+      ng-model="sidebar.selectedAlgorithm" ng-options="method for method in sidebar.algorithms"
+      ng-change="sidebar.updateAlgControls()"></select></div>
+  <div class="form-group" id="stats-step2"
+    ng-show="sidebar.selectedAlgorithm == 'CI for One Mean' ||sidebar.selectedAlgorithm == 'CI for One Proportion'"
+    ng-disabled="sidebar.deployed">
+    <div class="row form-inline bootstrap-switch-square"><label><span class="glyphicon glyphicon-question-sign"
+          aria-hidden="true" uib-tooltip="load data from db" tooltip-placement="right">&nbsp;</span>Use
+        data&nbsp;</label><input type="checkbox" data-toggle="switch" id="toggleDataDriven"
+        ng-model="sidebar.deployed" /></div>
+    <div class="row form-inline"><label><span class="glyphicon glyphicon-question-sign" aria-hidden="true"
+          uib-tooltip="confidence level" tooltip-placement="right">&nbsp;</span>α:&nbsp;&nbsp; {{sidebar.alpha}}</label>
+      <div id="alphaUI"></div>
+    </div>
+  </div>
+  <fieldset ng-show="sidebar.selectedAlgorithm == 'CI for One Mean' &amp;&amp; sidebar.deployed">
+    <legend>Data</legend>
+    <div class="form-group"><label>Numerical Columns</label><select class="form-control"
+        ng-model="sidebar.chosenColsOne" ng-options="col for col in sidebar.numericalCols"
+        ng-change="sidebar.run()"></select></div>
+    <div class="form-group"><label>Categorical Columns &nbsp;</label><select class="form-control"
+        ng-model="sidebar.chosenCats" ng-init="sidebar.chosenCats = sidebar.categoricalCols[0]"
+        ng-options="col for col in sidebar.categoricalCols" ng-change="sidebar.update()"></select></div>
+    <div class="form-group"><label>Subcategory</label><select class="form-control" ng-model="sidebar.chosenSubCatsOne"
+        ng-options="col for col in sidebar.subCategoricalCols" ng-change="sidebar.run()"></select></div>
+  </fieldset>
+  <fieldset ng-show="sidebar.selectedAlgorithm == 'CI for One Proportion' &amp;&amp; sidebar.deployed">
+    <legend>Data</legend>
+    <div class="form-group"><label>Categorical Columns &nbsp;</label><select class="form-control"
+        ng-model="sidebar.chosenCats" ng-options="col for col in sidebar.categoricalCols"
+        ng-change="sidebar.update()"></select></div>
+    <div class="form-group"><label>SubCategories</label><select class="form-control" ng-model="sidebar.chosenSubCatsOne"
+        ng-options="col for col in sidebar.subCategoricalCols" ng-change="sidebar.run()"></select></div>
+  </fieldset>
+</div>

@@ -72,12 +72,13 @@ require('vega-embed');
 
 // * For newly added modules ---------
 
-// const introJS = require('intro.js/intro.js')
+require('intro.js/intro.js')
 
-// require('intro.js/minified/introjs.min.css')
+require('intro.js/minified/introjs.min.css')
+require('intro.js/themes/introjs-nassim')
 // require('intro.js/themes/introjs-modern') // set theme
 
-// require('angular-intro.js')
+require('angular-intro.js/build/angular-intro')
 
 // create app-level modules
 angular.module('app_services', []);
@@ -121,9 +122,11 @@ let core = require('scripts/core/Core.js');
 console.log("moduleList is ", moduleList.listAll())
 
 let modules =  moduleList.listAll();
-// todo: Add introJS support
-// modules.push('angular-intro')
+modules.push('angular-intro')
 
 angular.module('app', modules)  // def modules is a list of dependencies (modules)
        .config(appConfig.getConfigBlock())
        .run(appConfig.getRunBlock());
+
+
+console.log("scope: ", angular.element('[ng-controller=StatsMainCtrl]').scope())

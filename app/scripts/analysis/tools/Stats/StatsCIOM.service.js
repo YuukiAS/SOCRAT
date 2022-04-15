@@ -136,7 +136,7 @@ module.exports = StatsCIOM = (function() {
         alpha = this.CIOMAlpha;
       }
       // Get the value of p in the inverse cdf for the Student's T distribution with df degrees of freedom.
-      this.CIOMTScore = Math.abs(this.jStat.studentt.inv(alpha, df)); 
+      this.CIOMTScore = Math.abs(this.jStat.studentt.inv(alpha, df));
       // todo check -sigma,+sigma
       this.CIOMLowerBound = this.CIOMMean - this.CIOMStDev * this.CIOMTScore;
       this.CIOMUpperBound = this.CIOMMean + this.CIOMStDev * this.CIOMTScore;
@@ -144,8 +144,8 @@ module.exports = StatsCIOM = (function() {
     }
 
     /**
-     * @param {Array} values 
-     * @param {number} mean 
+     * @param {Array} values
+     * @param {number} mean
      * @returns Sum of squares of (value-mean)
      */
     getletiance(values, mean) {
@@ -159,8 +159,8 @@ module.exports = StatsCIOM = (function() {
 
 
     getSum(values) {
-      return values.reduce((previousValue, currentValue)
-       => parseFloat(previousValue) + parseFloat(currentValue)
+      return values.reduce(
+        (previousValue, currentValue)=> (parseFloat(previousValue) + parseFloat(currentValue))
       );
     }
 

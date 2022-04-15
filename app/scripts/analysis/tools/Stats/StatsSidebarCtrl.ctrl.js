@@ -5,6 +5,7 @@ let indexOf = [].indexOf;
 
 let StatsSidebarCtrl = function () {
   class StatsSidebarCtrl extends BaseCtrl {
+
     initialize() {
       // initialing all modules
       this.dataService = this.app_analysis_stats_dataService;
@@ -56,9 +57,10 @@ let StatsSidebarCtrl = function () {
       $("#twoPropToggleThresh").bootstrapSwitch();
       // data-driven mode toggle
       $("#toggleDataDriven").on("switchChange.bootstrapSwitch", () => {
+        // def whether we will use our own data
         this.deployed = !this.deployed;
         return this.msgService.broadcast("stats:changeMode", {
-          deploy: this.deployed,
+          deploy: this.deployed,  // also broadcast an event
         });
       });
       // thresh mode toggle
@@ -104,7 +106,7 @@ let StatsSidebarCtrl = function () {
 
     /**
      * Once the algorithm is updated, broadcast to mainArea
-     * @returns 
+     * @returns
      */
     updateAlgControls() {
       //broadcast algorithms to main controller
@@ -118,7 +120,7 @@ let StatsSidebarCtrl = function () {
      * Called right after receiving the raw data
      * categorize data types into numeric or names
      * No need to modify this method unless permitted
-     * @returns 
+     * @returns
      */
     parseData() {
       return this.dataService.inferDataTypes(this.df, (resp) => {
@@ -191,25 +193,24 @@ let StatsSidebarCtrl = function () {
     }
 
     CIOM() {
-      let i, index, index1, j, len, len1, ref, ref1, row;
       this.populations = {};
       // if compare two different letiables, calculate separately
       if (this.chosenCats !== "none" && this.chosenCats !== void 0) {
         //extract index if col
-        index = this.df.header.indexOf(this.chosenColsOne);
+        let index = this.df.header.indexOf(this.chosenColsOne);
         //extract data from container to population
         this.populations[this.chosenSubCatsOne] = [];
-        ref = this.container[this.chosenSubCatsOne];
-        for (i = 0, len = ref.length; i < len; i++) {
-          row = ref[i];
+        let ref = this.container[this.chosenSubCatsOne];
+        for (let i = 0, len = ref.length; i < len; i++) {
+          let row = ref[i];
           this.populations[this.chosenSubCatsOne].push(row[index]);
         }
       } else {
         // extract data from data to population
-        index1 = this.df.header.indexOf(this.chosenColsOne);
+        let index1 = this.df.header.indexOf(this.chosenColsOne);
         this.populations[this.chosenColsOne] = [];
-        ref1 = this.df.data;
-        for (j = 0, len1 = ref1.length; j < len1; j++) {
+        let ref1 = this.df.data;
+        for (let j = 0, len1 = ref1.length; j < len1; j++) {
           row = ref1[j];
           this.populations[this.chosenColsOne].push(row[index1]);
         }
@@ -237,7 +238,7 @@ let StatsSidebarCtrl = function () {
 
     /**
      * Collection of sliders that update sliders
-     * @returns     
+     * @returns
      */
     slider() {
       return $("#alphaUI").slider({

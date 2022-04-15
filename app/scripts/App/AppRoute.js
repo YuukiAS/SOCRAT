@@ -45,12 +45,12 @@ module.exports = class AppRoute {
 
   // def for other pages
   linkDynamic($stateProvider, modules = this.modules) {
-    var i, k, len, module, ref, results, v;
-    results = [];
-    for (i = 0, len = modules.length; i < len; i++) {
-      module = modules[i];
+    let results = [];
+    for (let i = 0, len = modules.length; i < len; i++) {
+      let module = modules[i];
       if (module instanceof Module) {
         // check if module has state
+        var ref;
         if (((ref = module.state) != null ? ref.url : void 0) != null) {
           results.push($stateProvider.state(module.id, {
             url: module.state.url,
@@ -68,10 +68,10 @@ module.exports = class AppRoute {
         }
       } else {
         results.push(this.linkDynamic($stateProvider, ((function() {
-          var results1;
+          let results1;
           results1 = [];
-          for (k in module) {
-            v = module[k];
+          for (let k in module) {
+            let v = module[k];
             results1.push(v);
           }
           return results1;

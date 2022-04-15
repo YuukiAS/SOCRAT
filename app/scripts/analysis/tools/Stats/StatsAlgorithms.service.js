@@ -85,21 +85,20 @@ let StatsAlgorithms = function () {
     }
 
     passAlphaByName(algName, alphaIn) {
-      let alg;
       return function () {
         let i, len, ref, results;
         ref = this.algorithms;
         results = [];
         for (i = 0, len = ref.length; i < len; i++) {
-          alg = ref[i];
+          let alg = ref[i];
           if (algName === alg.getName()) {
             results.push(alg.setAlpha(alphaIn));
           }
         }
         return results;
       }
-        .call(this)
-        .shift();
+      .call(this)
+      .shift();
     }
 
     resetByName(algName) {
@@ -121,7 +120,7 @@ let StatsAlgorithms = function () {
     }
   }
 
-  
+
   StatsAlgorithms.inject(
     "app_analysis_stats_msgService",
     "app_analysis_stats_CIOM",

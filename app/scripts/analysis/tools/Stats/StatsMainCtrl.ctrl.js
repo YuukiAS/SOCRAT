@@ -2,8 +2,41 @@
 let BaseCtrl = require("scripts/BaseClasses/BaseController.coffee");
 
 let StatsMainCtrl = function () {
-  class StatsMainCtrl extends BaseCtrl {
+  class StatsMainCtrl extends BaseCtrl{
+
     initialize() {
+      this.$scope.IntroOptions = {
+        steps:[
+          {
+              element: document.querySelector('#stats-step1'),
+              intro: "Choose your desired statistical method.\
+              You can get the confidence interval for the mean or proporion based on the data.\
+              Besides, you can use pilot study to access the feasibility of an approach to be used in a larger scale study."
+          },
+          {
+              element: document.querySelector('#stats-step2'),
+              intro: "Choose whether to make use of current data and change confidence level(α).",
+              position: 'right'  // it will appear at the right of div
+          },
+          {
+              element: document.querySelector('#stats-step3'),
+              intro: 'You can adjust parameters here for the statistical method.',
+              position: 'left'
+          },
+          {
+              element: document.querySelector('#stats-step4'),
+              intro: "Your plot will be rendered here.",
+              position: 'bottom'
+          }
+          ],
+          showStepNumbers: false,
+          showBullets: true,
+          exitOnOverlayClick: true,  // can be cancelled when clicking background
+          exitOnEsc:true,
+          nextLabel: 'next',
+          prevLabel: 'previous',
+          skipLabel: 'skip'
+      };
       // required basic modules
       this.d3 = require("d3");
       this.ve = require("vega-embed").default;
@@ -11,16 +44,18 @@ let StatsMainCtrl = function () {
       this.distribution = require("distributome");
       this.msgService = this.app_analysis_stats_msgService;
       this.algorithmService = this.app_analysis_stats_algorithms;
-  
+
       this.title = "Stats Analysis Module";
       this.showHelp = false;
       this.selectedAlgorithm = "CI for One Mean";
       this.loadData();
+      // * wait for sidebarCtrl to pass new alpha
       this.$scope.$on("stats:alpha", (event, data) => {
+        // we must call algorihtmService, since alpha will be sent to other modules
         this.algorithmService.passAlphaByName(this.selectedAlgorithm, data);
         return this.loadData();
       });
-      // receive updated algorithm from sidebar area
+      // wait for sidebarCtrl to select new calculator
       this.$scope.$on("stats:updateAlgorithm", (event, data) => {
         this.selectedAlgorithm = data;
         console.log("algorithms updated:", this.selectedAlgorithm);
@@ -36,7 +71,7 @@ let StatsMainCtrl = function () {
 
     /**
      * load data to a specified calculator
-     * @returns 
+     * @returns
      */
     loadData() {
       if (this.selectedAlgorithm === "CI for One Mean") {
@@ -280,6 +315,9 @@ let StatsMainCtrl = function () {
       }
     }
 
+    /**
+     * Set N and T's slider for CIOP
+     */
     CIOPClick() {
       // select slider elements(div)
       let CIOPNUI = $("#CIOPNUI"); // for sample size N
@@ -501,6 +539,7 @@ let StatsMainCtrl = function () {
       this.params.tar = tar;
       this.syncData(this.params);
     }
+
   }
 
   StatsMainCtrl.inject(
@@ -510,7 +549,11 @@ let StatsMainCtrl = function () {
     "$scope"
   );
 
+
   return StatsMainCtrl;
 }.call(this);
 
 module.exports = StatsMainCtrl;
+
+
+
